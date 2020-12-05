@@ -3,8 +3,21 @@ class_name Player
 
 export (int) var speed = 100
 
+onready var animation : AnimationPlayer = $icon/AnimationPlayer
+
+func _ready():
+	animation.play("walk_down")
+
 func _physics_process(delta : float) -> void:
-	move_and_slide(get_movement_vector())
+	var moved := move_and_slide(get_movement_vector())
+	if moved.normalized() == Vector2.UP:
+		animation.play("walk_up")
+	elif moved.x < 0:
+		animation.play("walk_left")
+	elif moved.x > 0:
+		animation.play("walk_right")
+	else:
+		animation.play("walk_down")
 
 func get_movement_vector() -> Vector2:
 	var direction := Vector2()

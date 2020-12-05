@@ -19,7 +19,7 @@ func _ready() -> void:
 	add_child(player)
 
 func generate_level() -> void:
-	var new_room : Area2D = rooms.ROOM.instance()
+	var new_room : Area2D = rooms.Spawn.scene.instance()
 	var room_pos := Vector2(0,0)
 	level[room_pos] = new_room
 	new_room.position = room_pos * room_size * tile_size

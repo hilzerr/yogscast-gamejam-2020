@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "DialogueSystem",
+"language": "GDScript",
+"path": "res://resources/scripts/DialogueSystem.gd"
+}, {
+"base": "Resource",
+"class": "Interaction",
+"language": "GDScript",
+"path": "res://resources/scripts/Interaction.gd"
+}, {
+"base": "Resource",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://resources/scripts/Inventory.gd"
@@ -30,6 +40,8 @@ _global_script_classes=[ {
 "path": "res://scripts/world/Room.gd"
 } ]
 _global_script_class_icons={
+"DialogueSystem": "",
+"Interaction": "",
 "Inventory": "",
 "Item": "",
 "Player": "",

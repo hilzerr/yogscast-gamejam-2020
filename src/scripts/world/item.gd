@@ -7,4 +7,6 @@ func _ready() -> void:
 
 
 func _on_AnimationPlayer_ready():
-	$Sprite/AnimationPlayer.play("idle")
+	if $Sprite.hframes == 3 and item_data == load("res://resources/WaterJug.tres"):
+		$Sprite/AnimationPlayer.play("idle")
+	

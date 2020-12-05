@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player/Player.gd"
+}, {
+"base": "Area2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://scripts/world/Room.gd"
+} ]
 _global_script_class_icons={
-
+"Player": "",
+"Room": ""
 }
 
 [application]
@@ -55,3 +66,8 @@ move_right={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Walls"
 2d_physics/layer_3="Interactables"
+2d_physics/layer_4="Rooms"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"

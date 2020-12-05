@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://scripts/generall logic/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://resources/scripts/Inventory.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )

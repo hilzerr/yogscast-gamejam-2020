@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 export (int) var speed = 100
 
 func _physics_process(delta : float) -> void:

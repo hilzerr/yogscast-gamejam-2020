@@ -1,6 +1,6 @@
 extends Resource
+class_name ItemResource
 
-class_name Item
-
-export(String) var name := ""
-export(Texture) var texture
+export var name : String
+enum ITEMTYPE {WATER, COFFEE, KEY}
+export(ITEMTYPE) var type

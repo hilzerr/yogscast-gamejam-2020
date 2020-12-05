@@ -8,7 +8,7 @@ onready var animation : AnimationPlayer = $icon/AnimationPlayer
 func _ready():
 	animation.play("walk_down")
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	var moved := move_and_slide(get_movement_vector())
 	if moved.normalized() == Vector2.UP:
 		animation.play("walk_up")

@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "walk_left"
 step = 0.25
 tracks/0/type = "value"
@@ -35,7 +35,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "walk_right"
 step = 0.25
 tracks/0/type = "value"
@@ -51,8 +51,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "walk_up"
+[sub_resource type="Animation" id=4]
 step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -67,8 +66,9 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.48991
+height = 8.45604
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 6
@@ -82,9 +82,10 @@ frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="icon"]
 anims/walk_down = SubResource( 1 )
-anims/walk_left = SubResource( 4 )
-anims/walk_right = SubResource( 5 )
-anims/walk_up = SubResource( 2 )
+anims/walk_left = SubResource( 2 )
+anims/walk_right = SubResource( 3 )
+anims/walk_up = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+position = Vector2( 0, 4 )
+shape = SubResource( 5 )

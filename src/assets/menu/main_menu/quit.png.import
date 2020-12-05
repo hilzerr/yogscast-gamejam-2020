@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/quit_game.png-3e6594dd1d0d81d58e3f4aaa5b311228.stex"
+path="res://.import/quit.png-a64f52946ae901dad0bd066c842790de.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/main_menu/quit_game.png"
-dest_files=[ "res://.import/quit_game.png-3e6594dd1d0d81d58e3f4aaa5b311228.stex" ]
+source_file="res://assets/menu/main_menu/quit.png"
+dest_files=[ "res://.import/quit.png-a64f52946ae901dad0bd066c842790de.stex" ]
 
 [params]
 

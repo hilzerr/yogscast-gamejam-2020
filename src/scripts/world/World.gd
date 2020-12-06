@@ -40,4 +40,4 @@ func get_rooms() -> void:
 				"scene" : load(room_path + file_name),
 				"requirements" : room.requirements}
 			file_name = room_dir.get_next()
-	print_debug(rooms)
+	#print_debug(rooms)

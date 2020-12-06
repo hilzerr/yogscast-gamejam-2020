@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://resources/scripts/Interaction.gd" type="Script" id=1]
+[ext_resource path="res://resources/items/WaterJug.tres" type="Resource" id=2]
+[ext_resource path="res://resources/items/TestItem.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+require_item = true
+bad_items = [ ExtResource( 3 ) ]
+good_items = [ ExtResource( 2 ) ]
+initial_prompt = "This interaction has not been solved yet"
+bad_answer = "This interaction was naughty"
+good_answer = "This interaction was nice"
+no_answer = "This interaction was unsuccessful"
+solved_prompt = "This interaction has already been solved"
+solved_answer = "You leave the solved interaction"

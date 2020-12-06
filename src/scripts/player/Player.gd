@@ -5,6 +5,8 @@ export (int) var speed = 100
 
 onready var animation : AnimationPlayer = $icon/AnimationPlayer
 
+var direction : Vector2 = Vector2()
+
 func _ready():
 	animation.play("walk_down")
 
@@ -18,17 +20,29 @@ func _physics_process(_delta : float) -> void:
 		animation.play("walk_right")
 	else:
 		animation.play("walk_down")
-
+	
 func get_movement_vector() -> Vector2:
-	var direction := Vector2()
-	if Input.is_action_pressed("move_down"):
-		direction += Vector2.DOWN
-	if Input.is_action_pressed("move_up"):
-		direction += Vector2.UP
-	if Input.is_action_pressed("move_left"):
-		direction += Vector2.LEFT
-	if Input.is_action_pressed("move_right"):
-		direction += Vector2.RIGHT
-	if direction != Vector2():
-		direction = direction.normalized() * speed
-	return direction
+	var movement := Vector2()
+	movement = direction.normalized() * speed
+	return movement
+	
+
+func _unhandled_input(event : InputEvent) -> void:
+	if event.is_action_pressed("move_down"):
+		direction.y += 1
+	if event.is_action_pressed("move_up"):
+		direction.y -= 1
+	if event.is_action_pressed("move_left"):
+		direction.x -= 1
+	if event.is_action_pressed("move_right"):
+		direction.x += 1
+	if event.is_action_released("move_down"):
+		direction.y -= 1
+	if event.is_action_released("move_up"):
+		direction.y += 1
+	if event.is_action_released("move_left"):
+		direction.x += 1
+	if event.is_action_released("move_right"):
+		direction.x -= 1
+	direction.x = clamp(direction.x, -1, 1)
+	direction.y = clamp(direction.y, -1, 1)

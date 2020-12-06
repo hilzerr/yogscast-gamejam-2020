@@ -26,6 +26,7 @@ func show_prompt(message : String, answers : Array) -> void:
 	show()
 
 func _on_answer(answer : String) -> void:
-	emit_signal("answered", answer)
 	hide()
+	emit_signal("answered", answer)
+	
 	

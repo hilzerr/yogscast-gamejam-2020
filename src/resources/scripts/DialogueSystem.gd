@@ -17,7 +17,9 @@ func interact(target : Node, data : Interaction, solved : bool) -> void:
 		interact_unsolved(data)
 
 func interact_solved(data : Interaction) -> void:
-	pass
+	hud.show_prompt(data.solved_prompt, ["Okay"])
+	yield(hud, "answered")
+	hud.show_prompt(data.solved_answer, ["Bye"])
 
 func interact_unsolved(data : Interaction) -> void:
 	var answers : Array = ["Okay", "Bye"]

@@ -4,7 +4,7 @@ const room_path : String = "res://scenes/world/rooms/"
 
 var rooms : Dictionary = {
 	"Start" : { 
-		"scene": preload("res://scenes/world/rooms/TestRoom.tscn"), 
+		"scene": preload("res://scenes/world/rooms/Dinner_Room.tscn"), 
 		"requirements": []
 	}
 }

@@ -3,7 +3,18 @@ extends Node2D
 const room_path : String = "res://scenes/world/rooms/"
 
 var rooms = {
-	"Spawn" : { "scene": preload("res://scenes/world/Room.tscn"), "requirements": []}
+	"Start" : { 
+		"scene": preload("res://scenes/world/Room.tscn"), 
+		"requirements": []
+	},
+	"Kitchen": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": []
+	},
+	"Garden": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": []
+	}
 }
 
 export (Vector2) var tile_size = Vector2(32, 32)
@@ -18,8 +29,13 @@ func _ready() -> void:
 	player.position = Vector2()
 	add_child(player)
 
+
+func get_requirements(level):
+	pass
+
+
 func generate_level() -> void:
-	var new_room : Area2D = rooms.Spawn.scene.instance()
+	var new_room : Area2D = rooms.Start.scene.instance()
 	var room_pos := Vector2(0,0)
 	level[room_pos] = new_room
 	new_room.position = room_pos * room_size * tile_size

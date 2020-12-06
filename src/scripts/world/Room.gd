@@ -9,7 +9,7 @@ const DOORS = {
 }
 
 export (String) var room_name = "Base Room"
-export (Array, String) var requirements = ["Spawn"]
+export (Array, String) var requirements = ["Start"]
 
 func _ready() -> void:
 	pass

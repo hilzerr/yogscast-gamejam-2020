@@ -3,7 +3,7 @@ extends Node2D
 const room_path : String = "res://scenes/world/rooms/"
 
 var rooms = {
-	"Spawn" : { "scene": preload("res://scenes/world/Room.tscn"), "requirements": []}
+	"Spawn" : { "scene": preload("res://scenes/world/rooms/TestRoom.tscn"), "requirements": []}
 }
 
 export (Vector2) var tile_size = Vector2(32, 32)

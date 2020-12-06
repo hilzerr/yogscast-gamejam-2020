@@ -3,7 +3,18 @@ extends Node2D
 const room_path : String = "res://scenes/world/rooms/"
 
 var rooms = {
-	"Spawn" : { "scene": preload("res://scenes/world/Room.tscn"), "requirements": []}
+	"Start" : { 
+		"scene": preload("res://scenes/world/Room.tscn"), 
+		"requirements": []
+	},
+	"Kitchen": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": []
+	},
+	"Garden": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": []
+	}
 }
 
 export (Vector2) var tile_size = Vector2(32, 32)
@@ -18,13 +29,25 @@ func _ready() -> void:
 	player.position = Vector2()
 	add_child(player)
 
+
+func get_requirements(level):
+	pass
+
+
 func generate_level() -> void:
-	var new_room : Area2D = rooms.Spawn.scene.instance()
+<<<<<<< HEAD
+	var new_room : Area2D = rooms.Start.scene.instance()
+=======
+	var new_room : Room = rooms.Spawn.scene.instance()
+>>>>>>> 413a5426d4e7afb948142a97c45d271fba6057b9
 	var room_pos := Vector2(0,0)
-	level[room_pos] = new_room
-	new_room.position = room_pos * room_size * tile_size
-	new_room.connect("body_entered", self, "_on_room_entered", [new_room])
-	add_child(new_room)
+	place_room(new_room, room_pos)
+
+func place_room(room : Room, pos : Vector2) -> void:
+	level[pos] = room
+	room.position = pos * room_size * tile_size
+	room.connect("body_entered", self, "_on_room_entered", [room])
+	add_child(room)
 
 func _on_room_entered(_body : Player, room : Room) -> void:
 	$Camera2D.position = room.position
@@ -40,4 +63,4 @@ func get_rooms() -> void:
 				"scene" : load(room_path + file_name),
 				"requirements" : room.requirements}
 			file_name = room_dir.get_next()
-	print_debug(rooms)
+	#print_debug(rooms)

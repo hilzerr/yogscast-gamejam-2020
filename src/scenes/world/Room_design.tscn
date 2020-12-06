@@ -9,7 +9,6 @@ extents = Vector2( 272, 160 )
 [node name="Room" type="Area2D"]
 collision_layer = 2147483656
 script = ExtResource( 2 )
-requirements = [  ]
 
 [node name="Layer0" type="TileMap" parent="."]
 position = Vector2( -288, -176 )

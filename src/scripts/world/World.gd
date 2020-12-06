@@ -2,9 +2,9 @@ extends Node2D
 
 const room_path : String = "res://scenes/world/rooms/"
 
-var rooms = {
+var rooms : Dictionary = {
 	"Start" : { 
-		"scene": preload("res://scenes/world/Room.tscn"), 
+		"scene": preload("res://scenes/world/rooms/TestRoom.tscn"), 
 		"requirements": []
 	}
 }
@@ -28,8 +28,7 @@ func get_requirements(level):
 
 func generate_level() -> void:
 	var room_pos := Vector2(0,0)
-	for new_room in rooms:
-		place_room(rooms[new_room].scene.instance(), room_pos)
+	place_room(rooms.Start.scene.instance(), room_pos)
 
 
 func place_room(room : Room, pos : Vector2) -> void:

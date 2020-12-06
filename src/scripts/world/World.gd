@@ -6,14 +6,6 @@ var rooms = {
 	"Start" : { 
 		"scene": preload("res://scenes/world/Room.tscn"), 
 		"requirements": []
-	},
-	"Kitchen": {
-		"scene": preload("res://scenes/world/Room.tscn"),
-		"requirements": []
-	},
-	"Garden": {
-		"scene": preload("res://scenes/world/Room.tscn"),
-		"requirements": []
 	}
 }
 
@@ -35,13 +27,10 @@ func get_requirements(level):
 
 
 func generate_level() -> void:
-<<<<<<< HEAD
-	var new_room : Area2D = rooms.Start.scene.instance()
-=======
-	var new_room : Room = rooms.Spawn.scene.instance()
->>>>>>> 413a5426d4e7afb948142a97c45d271fba6057b9
 	var room_pos := Vector2(0,0)
-	place_room(new_room, room_pos)
+	for new_room in rooms:
+		place_room(rooms[new_room].scene.instance(), room_pos)
+
 
 func place_room(room : Room, pos : Vector2) -> void:
 	level[pos] = room
@@ -49,8 +38,10 @@ func place_room(room : Room, pos : Vector2) -> void:
 	room.connect("body_entered", self, "_on_room_entered", [room])
 	add_child(room)
 
+
 func _on_room_entered(_body : Player, room : Room) -> void:
 	$Camera2D.position = room.position
+
 
 func get_rooms() -> void:
 	var room_dir := Directory.new()
@@ -64,3 +55,6 @@ func get_rooms() -> void:
 				"requirements" : room.requirements}
 			file_name = room_dir.get_next()
 	#print_debug(rooms)
+	
+	
+	

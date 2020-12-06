@@ -19,12 +19,15 @@ func _ready() -> void:
 	add_child(player)
 
 func generate_level() -> void:
-	var new_room : Area2D = rooms.Spawn.scene.instance()
+	var new_room : Room = rooms.Spawn.scene.instance()
 	var room_pos := Vector2(0,0)
-	level[room_pos] = new_room
-	new_room.position = room_pos * room_size * tile_size
-	new_room.connect("body_entered", self, "_on_room_entered", [new_room])
-	add_child(new_room)
+	place_room(new_room, room_pos)
+
+func place_room(room : Room, pos : Vector2) -> void:
+	level[pos] = room
+	room.position = pos * room_size * tile_size
+	room.connect("body_entered", self, "_on_room_entered", [room])
+	add_child(room)
 
 func _on_room_entered(_body : Player, room : Room) -> void:
 	$Camera2D.position = room.position

@@ -3,7 +3,7 @@ class_name DialogueHUD
 
 signal answered(answer)
 
-var dialogue_system
+const dialogue_system = preload("res://resources/interactions/DialogueSystem.tres")
 
 onready var answer_box : VBoxContainer = $HBoxContainer/Answers
 onready var prompt_panel : PanelContainer = $PromptPanel
@@ -11,8 +11,9 @@ onready var prompt_label : Label = $PromptPanel/Prompt
 
 func _ready() -> void:
 	hide()
-	dialogue_system = load("res://resources/interactions/DialogueSystem.tres")
-	dialogue_system.register_hud(self)
+	release_focus()
+	dialogue_system.connect("prompted", self, "show_prompt")
+	connect("answered", dialogue_system, "_on_answered")
 
 func show_prompt(message : String, answers : Array) -> void:
 	prompt_label.text = message
@@ -24,9 +25,12 @@ func show_prompt(message : String, answers : Array) -> void:
 		btn.connect("button_down", self, "_on_answer", [ans])
 		answer_box.add_child(btn)
 	show()
+	grab_focus()
 
 func _on_answer(answer : String) -> void:
+	release_focus()
 	hide()
 	emit_signal("answered", answer)
 	
-	
+func _gui_input(event : InputEvent) -> void:
+	accept_event()

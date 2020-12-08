@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://resources/scripts/Interaction.gd" type="Script" id=1]
+[ext_resource path="res://resources/items/CoffeeMug.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+require_item = false
+bad_items = [ ExtResource( 2 ) ]
+good_items = [  ]
+initial_prompt = "Someone has turned on the coffe machine. The smell of freshly brewed coffee fills the air."
+bad_answer = ""
+good_answer = "You warm your fingers on the warm surface of the mug."
+no_answer = "You resist the temptation to take the mug."
+solved_prompt = ""
+solved_answer = ""

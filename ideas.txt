@@ -1,0 +1,47 @@
+,
+	"Kitchen": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": ["Start"]
+	},
+	"Garden": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": ["Kitchen"]
+	},
+	"Grandmas_room": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": ["Kitchen", "Start"]
+	},
+	"Junk_room": {
+		"scene": preload("res://scenes/world/Room.tscn"),
+		"requirements": ["Start"]
+	}
+
+plants needs {
+	getting cookies in dinnering room
+	getting dirt in grandmas room
+
+	bring cookies = bad
+	bring dirt = good
+} 
+
+Plant needs {
+	getting beer and water as a start item or in dinnering room
+
+	bring beer = bad
+	bring water = good
+}
+
+grandma wanna drink something {
+	get everything in dinnering room
+	
+	bring rumpod
+	bring water
+	bring beer
+	bring coffee
+}
+
+dinnering rroom needs a key {
+	get the key in a random room
+
+	bring the key to a closed door and interact with it
+}

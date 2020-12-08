@@ -1,12 +1,14 @@
-extends Sprite
+extends Node2D
 
 signal interaction_completed(success)
 signal interaction_solved
 
 export (Resource) var interaction
+export (bool) var locks_room = false
+export (bool) var solved = false
 
 var in_range : bool = false
-export (bool) var solved = false
+
 
 const dialogue_system : DialogueSystem = preload("res://resources/interactions/DialogueSystem.tres")
 

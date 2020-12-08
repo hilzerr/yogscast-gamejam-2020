@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/environment/indoor_tileset.tres" type="TileSet" id=2]
 
 [node name="Room" instance=ExtResource( 1 )]
+room_name = "Grandmother Room"
 
 [node name="Layer0" parent="." index="0"]
 self_modulate = Color( 0, 0.556863, 1, 1 )
